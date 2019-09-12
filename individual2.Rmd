@@ -1,0 +1,20 @@
+---
+title: "individual2.Rmd"
+author: "Alex Beagle"
+date: "9/12/2019"
+output: html_document
+---
+
+1. Most of the ratings are between 2.5 and 3.5, whch makes sense. These chocolate bars were seen as satisfactory, in general. There are much fewer chocolate bars with ratings between 1 and 2.5, but these were viewed as being unpleasant and disappointing. There is
+
+```{r}
+hist(choco$Rating, main = "Histogram of Dark Chocolate Bar Ratings", xlab ="Ratings", border = "blue", col = "green")
+```
+
+2.According to the scatterplot, ratings do not depend on the cacao percentage of a chocolate bar. The distribution seems fairly uniform among the various cacao percentages.
+
+```{r}
+plot(choco$Cocoa.Pct, choco$Rating, ylab = "Rating", xlab = "Cocoa Percentage", main = "Scatterplot of Rating of Dark Chocolate Bars by Cocoa Percentage")
+```
+3.
+
