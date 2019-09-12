@@ -5,16 +5,23 @@ date: "9/12/2019"
 output: html_document
 ---
 
-1. Most of the ratings are between 2.5 and 3.5, whch makes sense. These chocolate bars were seen as satisfactory, in general. There are much fewer chocolate bars with ratings between 1 and 2.5, but these were viewed as being unpleasant and disappointing. There is
+1. About half of the ratings fall between 3 and 3.5, which makes sense. These chocolate bars were seen as satisfactory. There are much fewer chocolate bars with ratings between 1 and 2.5, but these were viewed as being unpleasant and disappointing. Finally there is one chocolate bar that has a rating of 5. The chocolate bars with ratings of 1 and 5 can be considered outliers, considering that 75% of the data falls between ratings of about 2.25 to 4.
 
 ```{r}
 hist(choco$Rating, main = "Histogram of Dark Chocolate Bar Ratings", xlab ="Ratings", border = "blue", col = "green")
+boxplot(choco$Rating, main = "Boxplot of Chocolate Bar Ratings", ylab = "Rating")
 ```
 
-2.According to the scatterplot, ratings do not depend on the cacao percentage of a chocolate bar. The distribution seems fairly uniform among the various cacao percentages.
+2.According to the scatterplot, ratings do not depend on the cocoa percentage of a chocolate bar. The distribution seems fairly uniform among the various cocoa percentages.
 
 ```{r}
 plot(choco$Cocoa.Pct, choco$Rating, ylab = "Rating", xlab = "Cocoa Percentage", main = "Scatterplot of Rating of Dark Chocolate Bars by Cocoa Percentage")
 ```
-3.
+3. The variable representing company locations is an "integer", rather than a "character" variable. The two differ in that 
+
+```{r}
+typeof(choco$Company.Location)
+```
+
+
 
