@@ -17,10 +17,10 @@ boxplot(choco$Rating, main = "Boxplot of Chocolate Bar Ratings", ylab = "Rating"
 ```{r}
 plot(choco$Cocoa.Pct, choco$Rating, ylab = "Rating", xlab = "Cocoa Percentage", main = "Scatterplot of Rating of Dark Chocolate Bars by Cocoa Percentage")
 ```
-3. The variable representing company locations is an "integer", rather than a "character" variable. The two differ in that 
+3. The variable representing company locations is a "factor", rather than a "character" variable. The two differ in that a piece of text in R is comprised of a sequence of characters. A factor, on the other hand, are easier to work with, and they are used to work with categorical variables with a fixed and known set of possible values.
 
 ```{r}
-typeof(choco$Company.Location)
+class(choco$Company.Location)
 ```
 
 
