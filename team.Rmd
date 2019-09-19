@@ -4,3 +4,35 @@ author: "Nathan Haas"
 date: "9/12/2019"
 output: html_document
 ---
+
+```{r, eval=FALSE}
+recent_rating = choco[choco$Review.Date>2011,] #We are creating a subset of the data where we only want to consider the reviews from the year 2011.The arguments for this function are the [choco$Review.Date]. 
+
+unique(recent_rating$Company.Location) # NOTICE: how many countries are listed but how many levels are there? #Using the unique function, R automatically got rid of the duplicated company locations and returned all the locations once. There are 54 countries listed, but there are 61 levels present. The levels are the countries in alphabetical order.
+
+recent_rating$Company.Location = droplevels(recent_rating$Company.Location) #We removed the company locations that were completely unused in our subset of the data we created.
+
+head(recent_rating) #The head functions returns the first part, a preview, of the vector.
+
+cross_table = table(recent_rating$Review.Date,recent_rating$Company.Location) #This table returns the number of recent reviews in a given country within a given year. In 2012, companies in Australia gave 8 different chocolate reviews.
+cross_table
+
+which(cross_table[1,]!=0 & cross_table[2,]!=0 & cross_table[3,]!=0 & cross_table[4,]!=0 & cross_table[5,]!=0) #This function returns non-zero reviews for the first five countries in the cross_table.
+
+france_recent = subset(recent_rating,Company.Location =='France') #We are creating a subset of the data, only looking at companies in France.
+uk_recent = subset(recent_rating,Company.Location =='U.K.') #We are creating a subset of the data, only looking at companies in the U.K.
+germany_recent = subset(recent_rating,Company.Location=='Germany') #We are creating a subset of the data, only looking at companies in Germany.
+
+par(mfrow=c(2,2))
+color1 = ifelse(france_recent$Rating >median(france_recent$Rating), 'blue', 'green')
+plot(france_recent$Cocoa.Pct ~ france_recent$Review.Date,ylim=c(50,90),col=color1,pch=18,cex=1.5,xlab="Review Date", ylab= "Cocoa Percentage", main= "France") 
+legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('blue','green'),pch=18)
+
+color2 = ifelse(uk_recent$Rating >median(uk_recent$Rating), 'purple', 'red')
+plot(uk_recent$Cocoa.Pct ~ uk_recent$Review.Date,ylim=c(50,90),col=color2,pch=18,cex=1.5, xlab="Review Date", ylab= "Cocoa Percentage", main= "UK")
+legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('purple','red'),pch=18)
+
+color3 = ifelse(germany_recent$Rating > median(germany_recent$Rating), 'orange', 'yellow')
+plot(germany_recent$Cocoa.Pct ~ germany_recent$Review.Date,ylim=c(50,90),col=color3,pch=18,cex=1.5,xlab="Review Date", ylab= "Cocoa Percentage", main= "Germany") 
+legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('orange','yellow'),pch=18)
+```
