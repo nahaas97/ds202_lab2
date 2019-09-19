@@ -8,6 +8,11 @@ output: html_document
 1. About half of the ratings fall between 3 and 3.5, which makes sense. These chocolate bars were seen as satisfactory. There are much fewer chocolate bars with ratings between 1 and 2.5, but these were viewed as being unpleasant and disappointing. Finally there is one chocolate bar that has a rating of 5. The chocolate bars with ratings of 1 and 5 can be considered outliers, considering that 75% of the data falls between ratings of about 2.25 to 4.
 
 ```{r}
+choco <- read.csv("https://raw.githubusercontent.com/lbchu/ds202_labs/master/choco.csv")
+head(choco)
+```
+
+```{r}
 hist(choco$Rating, main = "Histogram of Dark Chocolate Bar Ratings", xlab ="Ratings", border = "blue", col = "green")
 boxplot(choco$Rating, main = "Boxplot of Chocolate Bar Ratings", ylab = "Rating")
 ```
