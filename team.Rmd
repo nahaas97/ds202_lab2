@@ -6,6 +6,7 @@ output: html_document
 ---
 
 ```{r, eval=FALSE}
+choco <- read.csv("https://raw.githubusercontent.com/lbchu/ds202_labs/master/choco.csv")
 recent_rating = choco[choco$Review.Date>2011,] #We are creating a subset of the data where we only want to consider the reviews from the year 2011 to present day.The arguments for this function are the [choco$Review.Date]. 
 
 unique(recent_rating$Company.Location) # NOTICE: how many countries are listed but how many levels are there? #Using the unique function, R automatically got rid of the duplicated company locations and returned all the locations once. There are 54 countries listed, but there are 61 levels present. The levels are the countries in alphabetical order.
@@ -41,6 +42,8 @@ legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('orange','yello
 
 3. By looking at the chart, we can see the frequency of reviews increases between 2012-2015 and then decreases.
 ```{r}
+choco <- read.csv("https://raw.githubusercontent.com/lbchu/ds202_labs/master/choco.csv")
+recent_rating = choco[choco$Review.Date>2011,]
 dotchart(recent_rating$Review.Date, main="Number of Reviews by Year", xlab="Year")
 ```
 
