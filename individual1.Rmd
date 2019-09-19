@@ -4,3 +4,19 @@ author: "Nathan Haas"
 date: "9/12/2019"
 output: html_document
 ---
+1. Half of the chocolate ratings seem to be centered between 3 and 3.5. One of the outliers had a rating of 5, and a few outliers weree below 2, with the lowest being 1. 
+```{r}
+boxplot(choco$Rating, main="Boxplot of Chocolate Ratings")
+```
+
+2. Based on the plot below, the ratings don't seem to depend on the percentage that much. Most of the data seems to be centered in the center, with the exception of a few outliers.
+
+```{r}
+plot(choco$Cocoa.Pct, choco$Rating, xlab = "Cocoa Percentage", ylab = "Chocolate Rating")
+```
+
+3. Company location is a factor variable. This differs from a character due to characters relying on the text of the data, while factors deal more with categorical data.
+```{r}
+class(choco$Company.Location)
+```
+
