@@ -1,6 +1,6 @@
 ---
 title: "team"
-author: "Nathan Haas"
+author: "Nathan Haas, Alex Beagle"
 date: "9/12/2019"
 output: html_document
 ---
